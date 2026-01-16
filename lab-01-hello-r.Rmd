@@ -32,7 +32,7 @@ dino_data <- datasaurus_dozen %>%
 ggplot(data = dino_data, mapping = aes(x = x, y = y)) +
   geom_point()
 ```
-The scatterplot reveals that the data points form the shape of a dinosaur. 
+The scatterplot reveals that the datapoints form the shape of a dinosaur. 
 
 
 Calculate the correlation between `x` and `y` in this dataset:
@@ -41,7 +41,7 @@ Calculate the correlation between `x` and `y` in this dataset:
 dino_data %>%
   summarize(r = cor(x, y))
 ```
-The Pearson correlation coefficient is approximately r = 0.064, which suggests a strongly weak negative linear relationship between x and y. This indicates that there is no linear relationship between x and y. 
+The Pearson correlation coefficient is approximately r = 0.064, which suggests a strongly weak negative linear relationship between x and y. This indicates that there is little to no linear relationship between x and y. 
 
 ### Exercise 3
 
@@ -61,7 +61,7 @@ The scatterplot shows that the data points form a star shape.
 star %>% 
   summarise(r = cor(x, y))
 ```
-The correlation coefficient for the star dataset is approximately r = -0.063, which is remarkably similar to the dino dataset's correlation of -0.064 and shows no linear relationship between x and y here. 
+The correlation coefficient for the star dataset is approximately r = -0.063, which is similar to the dino dataset's correlation of -0.064 and shows little to no linear relationship between x and y as well 
 
 ### Exercise 4
 
@@ -80,7 +80,7 @@ The scatterplot shows a distinct pattern that is quite different from the dino a
 away %>%
   summarize(r = cor(x, y))
 ```
-The Pearson correlation coefficient is approximately r = -0.064. 
+The Pearson correlation coefficient is approximately r = -0.064, which still indicates a strongly weak negative correlation between x and y. 
 
 
 ### Exercise 5
@@ -100,4 +100,4 @@ datasaurus_dozen %>%
   summarise(r = cor(x, y)) %>% 
   knitr::kable(digits = 3, caption = "Correlation between x and y for all datasets")
 ```
-As shown in the table above, all 13 datasets have a correlation coefficient very close to -0.06. Despite their drastically different visual appearances (dinos, stars, circles, etc.), they show similar relationship between x and y. This highlights the importance of data visualization and always visualizing data before analyzing it.
+As shown in the table above, all 13 datasets have a correlation coefficient very close to -0.06. Despite their drastically different visualization (dinos, stars, circles, etc.), they show similar relationship between x and y, which can be misleading on their own. This highlights the importance of data visualization and always visualizing data before analyzing it.
