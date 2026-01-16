@@ -92,8 +92,10 @@ ggplot(datasaurus_dozen, aes(x = x, y = y, color = dataset)) +
   theme(legend.position = "none")
 ```
 ```{r cor-all-datasets}
+library(knitr)
 datasaurus_dozen %>% 
   group_by(dataset) %>% 
-  summarise(r = cor(x, y))
+  summarise(r = cor(x, y)) %>% 
+  knitr::kable(digits = 3, caption = "Correlation between x and y for all datasets")
 ```
 
