@@ -1,7 +1,7 @@
 ---
 title: "Lab 01 - Hello R"
-author: "Insert your name here"
-date: "Insert date here"
+author: "Barbara Mu"
+date: "Jan 16, 2026"
 output: 
   html_document: 
     fig_height: 4
@@ -61,8 +61,7 @@ The scatterplot shows that the data points form a star shape.
 star %>% 
   summarise(r = cor(x, y))
 ```
-The Pearson correlation coefficient is approximately r = 0.063, which suggests a strongly weak negative linear relationship between x and y. This indicates that there is no linear relationship between x and y. 
-
+The correlation coefficient for the star dataset is approximately r = -0.063, which is remarkably similar to the dino dataset's correlation of -0.064 and shows no linear relationship between x and y here. 
 
 ### Exercise 4
 
@@ -75,15 +74,18 @@ away <- datasaurus_dozen %>%
 ggplot(data = away, mapping = aes(x = x, y = y)) + 
   geom_point()
 ```
+The scatterplot shows a distinct pattern that is quite different from the dino and star shapes.
 
 ```{r cor-away}
 away %>%
   summarize(r = cor(x, y))
 ```
+The Pearson correlation coefficient is approximately r = -0.064. 
+
 
 ### Exercise 5
 
-Visualize all 13 datasets at once using faceting to see how different they look 
+Visualize all 13 datasets at once and compare their correlation coefficients 
 
 ```{r plot-all-datasets}
 ggplot(datasaurus_dozen, aes(x = x, y = y, color = dataset)) + 
@@ -98,4 +100,4 @@ datasaurus_dozen %>%
   summarise(r = cor(x, y)) %>% 
   knitr::kable(digits = 3, caption = "Correlation between x and y for all datasets")
 ```
-
+As shown in the table above, all 13 datasets have a correlation coefficient very close to -0.06. Despite their drastically different visual appearances (dinos, stars, circles, etc.), they show similar relationship between x and y. This highlights the importance of data visualization and always visualizing data before analyzing it.
